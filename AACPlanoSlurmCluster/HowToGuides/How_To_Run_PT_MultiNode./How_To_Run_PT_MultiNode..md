@@ -1,5 +1,5 @@
 ## 1. We will be using elastic_ddp.py file to run Pytorch DDP test.
-https://raw.githubusercontent.com/ozziemoreno/files/main/elastic_ddp.py
+elastic_ddp.py is present in the same directory.
 
 ## 2. Request 2 nodes, 8 GPUs per node though Slurm.
 ```
