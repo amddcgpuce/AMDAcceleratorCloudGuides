@@ -7,6 +7,8 @@ User can use AAC in 2 ways:
 1. Web Interface (https://aac.amd.com)
 2. Direct SSH access through [CLI](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/tree/main?tab=readme-ov-file#how-to-ssh-to-the-plano-slurm-cluster).
 
+This document is on using AAC through Web interface after login using email address and password.
+
 ## 2. Queues
 The compute nodes are the backbone of the cluster and provide the computing power needed to run jobs. The compute nodes are organized in different queues based on different Operating System (RHEL8, RHEL9, Ubunutu22, SLES15) and Accelerator type (MI210 and MI250). Queues are assigned to the User's Team as per their requirements so that they can launch workloads. User can see their assinged queues in this section.
 [Assigned queues](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/blob/main/PlexusQuickStartGuide/HowTo_Check_Queues_Assigned.md)
