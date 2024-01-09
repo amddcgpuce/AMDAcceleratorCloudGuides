@@ -25,9 +25,6 @@ Refer [PlexusQuickStartGuide](https://github.com/amddcgpuce/AMDAcceleratorCloudG
 ## Contacting AAC Support Team
 For questions or support requests, please email them to dl.dcgpu.aac.service-requests@amd.com
 
-***
-## July 13-14th AAC Maintenance Update Notice for AAC Users
-***
 
 ### The AAC Web Interface has moved to https://aac.amd.com 
 
