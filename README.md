@@ -2,15 +2,26 @@
 
 ## Getting Started
 Contact your AMD Sponsor to sign up for access to AMD Accelerator Cloud resources.
-### How to Login to the Web Interface Login
-Go to https://aac.amd.com
-### How to SSH to the Plano Slurm Cluster
+
+AAC can be accessed in two ways.
+1. One is through web interface(aac.amd.com) using your email address and password
+2. And the other one is through CLI using username and SSH key(Direct SSH access to cluster)
+
+To submit interactive jobs, AAC web interface should be sufficient.
+In case SSH access is required, public key should be provided. Based on the approval, SSH account will be activated. Please check with your sponsor
+
+### 1. How to Login to the Web Interface Login
+Go to https://aac.amd.com and login using the email address and password.</br>
+
+Refer [PlexusQuickStartGuide](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/tree/main/PlexusQuickStartGuide) for Web interface guides
+### 2. How to SSH to the Plano Slurm Cluster(For Users having Direct SSH access to cluster)
 1. From the laptop or system used to generate SSH keys for AAC User Account Registration, enter the following at the Terminal or PowerShell prompt to SSH to the AAC Plano Slurm cluster:
    ```
    ssh <your_userid>@aac1.amd.com
    ```
-   The SSH keys should be accessible under `$HOME/.ssh` directory or via `PuTTy` or `Mobaterm` tools used to generate the SSH keys
+   The SSH keys should be accessible under `$HOME/.ssh` directory or via `PuTTy` or `Mobaterm` tools used to generate the SSH keys.
 
+<br/>Refer [AACPlanoSlurmCluster](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/tree/main/AACPlanoSlurmCluster) for more details.
 ## Contacting AAC Support Team
 For questions or support requests, please email them to dl.dcgpu.aac.service-requests@amd.com
 

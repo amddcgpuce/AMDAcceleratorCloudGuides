@@ -88,6 +88,14 @@ Please refer **Select Resources** step in [HowTo_Run_Workload](https://github.co
 
 Interactive applications like pyTorch, Tensorflow, Jammy, etc will not have Application Configuration step. Hence, you will not see the step.
 
+### How to submit interactive jobs?
+
+AAC supports submitting interactive jobs by using applications like Jammy, Pytorch etc. Following guides can be referred.<br/>
+
+Jammy: [How_To_Launch_Jammy(SSH)_Application](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/blob/main/PlexusQuickStartGuide/How_To_Launch_Jammy(SSH)_Application.md) <br/>
+Pytorch: [HowTo_Launch_Pytorch_Application](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/blob/main/PlexusQuickStartGuide/HowTo_Launch_Pytorch_Application.md)<br/>
+Tensorflow: [How_To_Launch_Tensorflow_Application](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/blob/main/PlexusQuickStartGuide/HowTo_Launch_TensorFlowDocker_Application.md)
+
 ### How to SSH into container for Jammy/Ubuntu applications?
 
 Launch a Jammy application. Once interactive endpoints are available in workload overview page, Navigate to **STDOUT** and copy username and password.
