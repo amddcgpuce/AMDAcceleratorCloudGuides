@@ -32,9 +32,25 @@
    ![image](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/assets/137475062/288c5513-1c13-482d-9e72-69c9cfd9e4fc)
 
 
- **6. Click 'Next' button to continue.**
+ **6. In the Run Script, source the wrapper and execute the wrapper with script as parameter. Then, Click 'Next'.**
 
-   ![image](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/assets/137475062/48d2a365-8c3b-4bd7-b504-ebb200d356bb)
+>source $PLEXUS_FILE_MULTINODE_WRAPPER
+torchrun --nnodes=$PLEXUS_NUM_NODES --nproc_per_node=$PLEXUS_NUM_GPUS --master_addr $MASTER_ADDR  --master_port $MASTER_PORT script.py
+$PLEXUS_FILE_MULTINODE_WRAPPER torchrun --nnodes=\$PLEXUS_NUM_NODES --nproc_per_node=\$PLEXUS_NUM_GPUS  --master_addr \$MASTER_ADDR  --master_port \$MASTER_PORT script.py
+
+ For instance,
+ >if [ -z $PLEXUS_FILE_MULTINODE_WRAPPER ] || [ ! -f $PLEXUS_FILE_MULTINODE_WRAPPER ]; then >&2 echo "PLEXUS_FILE_MULTINODE_WRAPPER file not found."
+  exit 1;
+fi
+input_script=/home/aac/elastic_ddp.py
+if [! -f  $input_script]; then >&2 echo "File not found: "$input_script
+  exit 1;
+fi
+source $PLEXUS_FILE_MULTINODE_WRAPPER
+python3 -m torch.distributed.run --nnodes=$PLEXUS_NUM_NODES --nproc_per_node=$PLEXUS_NUM_GPUS --rdzv_id=$PLEXUS_JOB_UUID --rdzv_backend=c10d --rdzv_endpoint=$BACKEND_ENDPOINT --node_rank=$PLEXUS_NODE_INDEX  $input_script
+
+![image](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/assets/137475255/6578954b-d310-46dc-a631-984796f10864)
+
 
    
  **7. In 'Select Resources' tab, select the number of nodes, GPUs per node and maximum allowed runtime.**
