@@ -34,20 +34,23 @@
 
  **6. In the Run Script, source the wrapper and execute the wrapper with script as parameter. Then, Click 'Next'.**
 
->source $PLEXUS_FILE_MULTINODE_WRAPPER
+Sourcing the wrapper
+>source $PLEXUS_FILE_MULTINODE_WRAPPER<br>
 torchrun --nnodes=$PLEXUS_NUM_NODES --nproc_per_node=$PLEXUS_NUM_GPUS --master_addr $MASTER_ADDR  --master_port $MASTER_PORT script.py
-$PLEXUS_FILE_MULTINODE_WRAPPER torchrun --nnodes=\$PLEXUS_NUM_NODES --nproc_per_node=\$PLEXUS_NUM_GPUS  --master_addr \$MASTER_ADDR  --master_port \$MASTER_PORT script.py
+
+Executing the wrapper with script as parameter. In this case, variables must be scaped with  a backslash \
+>$PLEXUS_FILE_MULTINODE_WRAPPER torchrun --nnodes=\$PLEXUS_NUM_NODES --nproc_per_node=\$PLEXUS_NUM_GPUS  --master_addr \$MASTER_ADDR  --master_port \$MASTER_PORT script.py
 
  For instance,
- >if [ -z $PLEXUS_FILE_MULTINODE_WRAPPER ] || [ ! -f $PLEXUS_FILE_MULTINODE_WRAPPER ]; then >&2 echo "PLEXUS_FILE_MULTINODE_WRAPPER file not found."
-  exit 1;
-fi
-input_script=/home/aac/elastic_ddp.py
-if [! -f  $input_script]; then >&2 echo "File not found: "$input_script
-  exit 1;
-fi
-source $PLEXUS_FILE_MULTINODE_WRAPPER
-python3 -m torch.distributed.run --nnodes=$PLEXUS_NUM_NODES --nproc_per_node=$PLEXUS_NUM_GPUS --rdzv_id=$PLEXUS_JOB_UUID --rdzv_backend=c10d --rdzv_endpoint=$BACKEND_ENDPOINT --node_rank=$PLEXUS_NODE_INDEX  $input_script
+ >if [ -z $PLEXUS_FILE_MULTINODE_WRAPPER ] || [ ! -f $PLEXUS_FILE_MULTINODE_WRAPPER ]; then <br>>&2 echo "PLEXUS_FILE_MULTINODE_WRAPPER file not found."<br>
+  &nbsp; exit 1;<br>
+fi<br>
+input_script=/home/aac/elastic_ddp.py<br>
+if [! -f  $input_script]; then >&2 echo "File not found: "$input_script<br>
+  &nbsp; exit 1;<br>
+fi<br>
+source $PLEXUS_FILE_MULTINODE_WRAPPER<br>
+python3 -m torch.distributed.run --nnodes=$PLEXUS_NUM_NODES --nproc_per_node=$PLEXUS_NUM_GPUS --rdzv_id=$PLEXUS_JOB_UUID --rdzv_backend=c10d --rdzv_endpoint=$BACKEND_ENDPOINT --node_rank=$PLEXUS_NODE_INDEX $input_script
 
 ![image](https://github.com/amddcgpuce/AMDAcceleratorCloudGuides/assets/137475255/6578954b-d310-46dc-a631-984796f10864)
 
